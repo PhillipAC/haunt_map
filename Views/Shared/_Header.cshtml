@@ -1,0 +1,19 @@
+﻿<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+    <div class="navbar-header">
+        @Html.ActionLink("Haunt Map", "Index", "Home", null, new { @class = "navbar-brand"} )
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Main
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Map", "Index", "Home")</li>
+            <li>@Html.ActionLink("Haunts", "Index", "Haunt")</li> 
+          </ul>
+      </li>
+     </ul>
+    </div>
+</nav>

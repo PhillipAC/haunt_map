@@ -1,0 +1,50 @@
+﻿@model haunt_map.Models.Haunt
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Haunt</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Story)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Story)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.latitude)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.latitude)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.longitude)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.longitude)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
