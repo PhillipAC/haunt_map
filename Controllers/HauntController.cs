@@ -15,6 +15,14 @@ namespace haunt_map.Controllers
         private HauntDBContext db = new HauntDBContext();
 
         //
+        // GET: /Haunt/Map
+
+        public ActionResult Map()
+        {
+            return View(db.Haunts.ToList());
+        }
+
+        //
         // GET: /Haunt/
 
         public ActionResult Index()

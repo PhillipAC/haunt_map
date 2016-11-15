@@ -1,0 +1,25 @@
+﻿@model IEnumerable<haunt_map.Models.Haunt>
+
+@{
+    ViewBag.Title = "Map.cshtml";
+}
+
+<h2>Map.cshtml</h2>
+<div id="map" style="height: 400px;"></div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAe8MfxGp3mpDLGvV6PhBQXjJ62YaC46XY&v=3&amp;sensor=false"></script>
+    <script>
+        var haunts = [
+        @foreach(var item in Model) {
+        <text>
+          ['@Html.DisplayFor(modelItem => item.Title)', 
+           @Html.DisplayFor(modelItem => item.latitude),
+           @Html.DisplayFor(modelItem => item.longitude),
+           @Html.DisplayFor(modelItem => item.ID)],
+        </text>
+        }];
+    </script>
+    @Scripts.Render("~/bundles/googlemapicons");
+}
