@@ -1,27 +1,35 @@
-﻿var user_position = { lat: 0, lng: 0 }
-
-function request_distance() {
+﻿function request_distance() {
     if (navigator.geolocation) {
         var timeoutVal = 10 * 1000 * 1000;
         navigator.geolocation.getCurrentPosition(
           set_position,
-          set_default({ latitude: 0, longitude: 0 }),
+          set_default,
           { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
         );
     }
     else {
-        set_default({ latitude: 0, longitude: 0 });
+        set_default();
     }
-    initMap();
 }
 function set_position(position) {
-    user_position.lat = position.latitude;
-    user_position.lng = position.longitude;
+    user_position = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+    };
+    console.log(user_position);
+    initMap(user_position);
 }
-function set_default(position) {
-    console.log("Setting Default");
-    user_position.lat = position.latitude;
-    user_position.lng = position.longitude;
+function set_default(error) {
+    var error = {
+        1: 'Permission denied',
+        2: 'Position unavailable',
+        3: 'Request timeout'
+    };
+    user_position = {
+        lat: 0,
+        lng: 0
+    };
+    initMap(user_position);
 }
 
 $(document).ready(request_distance);

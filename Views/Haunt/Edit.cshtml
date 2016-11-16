@@ -39,7 +39,7 @@
             @Html.ValidationMessageFor(model => model.longitude)
         </div>
 
-        <div id="googleMap" style="height: 400px;"></div>
+        <div id="googleMap" style="height: 400px; width: 400px;"></div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserId)
@@ -65,6 +65,6 @@
     @Scripts.Render("~/bundles/googlemaps")
     <script>
         var user_position = { lat: '@Html.DisplayFor(model => model.latitude)', lng: '@Html.DisplayFor(model => model.longitude)' }
-        $(document).ready(initMap());
+        $(document).ready(initMap(user_position));
     </script>
 }

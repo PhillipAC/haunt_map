@@ -1,5 +1,5 @@
 // JavaScript source code
-function initMap() {
+function initMap(user_position) {
     console.log(user_position);
     var myLatlng = new google.maps.LatLng(user_position.lat, user_position.lng);
     var mapProp = {

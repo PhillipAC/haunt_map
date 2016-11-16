@@ -1,6 +1,7 @@
-﻿function initMap() {
+﻿function initMap(user_position) {
+    console.log(user_position);
           var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 10,
+              zoom: 15,
               center: {lat: user_position.lat, lng: user_position.lng}
           });
           setMarkers(map);
