@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<haunt_map.Models.Haunt>
 
 @{
-    ViewBag.Title = "Map.cshtml";
+    ViewBag.Title = "| Map";
 }
 
-<h2>Map.cshtml</h2>
+<h2>Map </h2>
 <div id="map" style="height: 400px;"></div>
 
 @section Scripts {
@@ -22,4 +22,5 @@
         }];
     </script>
     @Scripts.Render("~/bundles/googlemapicons");
+    @Scripts.Render("~/bundles/geolocation");
 }

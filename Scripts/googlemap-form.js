@@ -1,9 +1,10 @@
 // JavaScript source code
-function initialize() {
-    var myLatlng = new google.maps.LatLng(51.508742, -0.120850);
+function initMap() {
+    console.log(user_position);
+    var myLatlng = new google.maps.LatLng(user_position.lat, user_position.lng);
     var mapProp = {
         center: myLatlng,
-        zoom: 5,
+        zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP
 
     };
@@ -14,8 +15,8 @@ function initialize() {
         title: 'Hello World!',
         draggable: true
     });
-    document.getElementById('lat').value = 51.508742
-    document.getElementById('lng').value = -0.120850
+    document.getElementById('lat').value = user_position.lat;
+    document.getElementById('lng').value = user_position.lng;
     // marker drag event
     google.maps.event.addListener(marker, 'drag', function (event) {
         document.getElementById('lat').value = event.latLng.lat();
@@ -40,4 +41,3 @@ function initialize() {
     });
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
