@@ -16,7 +16,7 @@ function setMarkers(map) {
     // Origins, anchor positions and coordinates of the marker increase in the X
     // direction to the right and in the Y direction down.
     var image = {
-        url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+        url: '/content/images/ghost_icon_small.png',
         // This marker is 20 pixels wide by 32 pixels high.
         size: new google.maps.Size(20, 32),
         // The origin for this image is (0, 0).
@@ -31,9 +31,13 @@ function setMarkers(map) {
         coords: [1, 1, 1, 20, 18, 20, 18, 1],
         type: 'poly'
     };
-    for (var i = 0; i < haunts.length; i++) {
+
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i, content;
+
+    for (i = 0; i < haunts.length; i++) {
         var haunt = haunts[i];
-        var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
             position: {lat: haunt[1], lng: haunt[2]},
             map: map,
             icon: image,
@@ -41,5 +45,13 @@ function setMarkers(map) {
             title: haunt[0],
             zIndex: haunt[3]
         });
+
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+                content = "<h4>" + haunts[i][0] + "</h4>" + "<p>" + haunts[i][4];
+                infowindow.setContent(content);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
     }
 }

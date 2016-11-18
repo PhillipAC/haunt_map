@@ -17,10 +17,11 @@
           ['@Html.DisplayFor(modelItem => item.Title)', 
            @Html.DisplayFor(modelItem => item.latitude),
            @Html.DisplayFor(modelItem => item.longitude),
-           @Html.DisplayFor(modelItem => item.ID)],
+           @Html.DisplayFor(modelItem => item.ID),
+           '@Html.DisplayFor(modelItem => item.Story)'],
         </text>
         }];
     </script>
-    @Scripts.Render("~/bundles/googlemapicons");
-    @Scripts.Render("~/bundles/geolocation");
+    @Scripts.Render("~/bundles/googlemapicons")
+    @Scripts.Render("~/bundles/geolocation")
 }

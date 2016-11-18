@@ -1,4 +1,8 @@
 ﻿/*General Information*/
+body {
+    background-color: #f4fffe;
+}
+
 .center {
     text-align: center;
 }
