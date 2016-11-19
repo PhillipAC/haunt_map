@@ -22,3 +22,5 @@ c:\users\phillip\documents\visual studio 2012\Projects\haunt_map\haunt_map\bin\S
 c:\users\phillip\documents\visual studio 2012\Projects\haunt_map\haunt_map\obj\Debug\haunt_map.csprojResolveAssemblyReference.cache
 c:\users\phillip\documents\visual studio 2012\Projects\haunt_map\haunt_map\obj\Debug\haunt_map.dll
 c:\users\phillip\documents\visual studio 2012\Projects\haunt_map\haunt_map\obj\Debug\haunt_map.pdb
+C:\Users\Phillip\documents\visual studio 2012\Projects\Haunt_Map\haunt_map\bin\Helpers.dll
+C:\Users\Phillip\documents\visual studio 2012\Projects\Haunt_Map\haunt_map\bin\Helpers.pdb
