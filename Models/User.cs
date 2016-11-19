@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,8 @@ namespace haunt_map.Models
 {
     public class User
     {
+        [Key]
+        public int Id {get; set;}
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
@@ -18,6 +21,13 @@ namespace haunt_map.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
+        [Compare("Password", ErrorMessage = "Confirm password dose not match.")]
+        [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
+        public string ConfirmPassword { get; set; }
+
+        [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$",
+        ErrorMessage = "Please provide valid email id")]
+        public string Email { get; set; }
 
         [Display(Name = "Remember on this computer")]
         public bool RememberMe { get; set; }
@@ -53,5 +63,10 @@ namespace haunt_map.Models
             
         }
 
+    }
+
+    public class UserDBContext : DbContext
+    {
+        public DbSet<User> System_Users { get; set; }
     }
 }

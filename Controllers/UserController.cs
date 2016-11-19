@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using haunt_map.Models;
 
 namespace haunt_map.Controllers
 {
     public class UserController : Controller
     {
+        private UserDBContext db = new UserDBContext();
         //
         // GET: /User/
 
@@ -17,7 +19,25 @@ namespace haunt_map.Controllers
             return View();
         }
 
+        public ActionResult Register() {
+            return View();
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(User U)
+        {
+            if (ModelState.IsValid)
+            {
+                //you should check duplicate registration here 
+                db.System_Users.Add(U);
+                db.SaveChanges();
+                ModelState.Clear();
+                U = null;
+                ViewBag.Message = "Successfully Registration Done";
+            }
+            return View(U);
+        }
 
         [HttpGet]
         public ActionResult Login()
@@ -26,7 +46,7 @@ namespace haunt_map.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Models.User user)
+        public ActionResult Login(User user)
         {
             if (ModelState.IsValid) {
                 if (user.IsValid(user.UserName, user.Password))
